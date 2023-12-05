@@ -417,9 +417,6 @@ export class MatchRepositoryImpl implements MatchesRepository {
         for (const matchData of matchesData) {
           const matchId = matchData.match_id;
           const matchEntities = await this.getMatchData(matchId);
-          console.log(matchEntities, "matchEntities");
-          console.log(matchEntities?.lineup, "matchEntities?.lineup");
-          console.log(matchEntities?.lineup.home, "matchEntities?.lineup.home");
           if (matchEntities) matches.push(new MatchEntity(matchEntities));
         }
 
