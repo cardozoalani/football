@@ -1,0 +1,49 @@
+{
+  "name": "football",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dist/server.js",
+    "dev": "nodemon src/index.ts",
+    "build": "tsc",
+    "create-tables": "ts-node src/infrastructure/database/createTables.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cardozoalani/football.git"
+  },
+  "author": "Alan Cardozo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cardozoalani/football/issues"
+  },
+  "homepage": "https://github.com/cardozoalani/football#readme",
+  "dependencies": {
+    "axios": "^1.6.2",
+    "cron": "^3.1.6",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "node-cron": "^3.0.3",
+    "pg": "^8.11.3",
+    "typeorm": "^0.3.17"
+  },
+  "devDependencies": {
+    "@types/cron": "^2.4.0",
+    "@types/express": "^4.17.21",
+    "@types/node-cron": "^3.0.11",
+    "@types/pg": "^8.10.9",
+    "nodemon": "^3.0.2",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.3.2"
+  },
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "esModuleInterop": true
+  }
+}

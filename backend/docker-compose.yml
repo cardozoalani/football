@@ -1,0 +1,18 @@
+version: '3.1'
+
+services:
+  db:
+    image: postgres:13
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: contraseña123
+      POSTGRES_USER: usuario
+      POSTGRES_DB: football
+    volumes:
+      - ./server/db/scripts:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 1s
+      timeout: 1s
+      retries: 5
