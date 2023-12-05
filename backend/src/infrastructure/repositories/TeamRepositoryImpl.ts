@@ -193,4 +193,23 @@ export class TeamRepositoryImpl implements TeamRepository {
       client.release();
     }
   }
+  async find(): Promise<TeamEntity[] | null> {
+    try {
+      const query = {
+        text: `SELECT * FROM teams`,
+      };
+
+      const result: QueryResult = await pool.query(query);
+
+      if (result.rows.length > 0) {
+        const teams = result.rows;
+        return teams;
+      } else {
+        return null;
+      }
+    } catch (error) {
+      console.error("Error fetching team:", error);
+      throw error;
+    }
+  }
 }
