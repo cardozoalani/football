@@ -1,6 +1,8 @@
 import { app } from "./infrastructure/express/server";
 import { startFetchDataCron } from "./infrastructure/cron/fetchDataCron.ts";
 import dotenv from "dotenv";
+import { fetchTeamsAndSave } from "./infrastructure/api/fetchTeams";
+import { fetchMatchesAndSave } from "./infrastructure/api/fetchMatches";
 dotenv.config();
 const start = async () => {
   console.log("Starting application...\n");
@@ -27,6 +29,8 @@ const start = async () => {
     app.listen(process.env.PORT || 3000, () => {
       console.log(`Listening on port number ${process.env.PORT || 3000}`);
     });
+    await fetchTeamsAndSave();
+    await fetchMatchesAndSave();
     startFetchDataCron();
   } catch (err) {
     console.error(err);
